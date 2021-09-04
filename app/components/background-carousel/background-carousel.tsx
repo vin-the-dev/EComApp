@@ -70,7 +70,7 @@ class BackgroundCarousel extends React.Component {
         <View style={styles.circleDiv}>
           {images.map((image, i) => (
             <View
-              style={[styles.whiteCircle, { opacity: i === selectedIndex ? 0.5 : 1 }]}
+              style={[styles.whiteCircle, { opacity: i === selectedIndex ? 1 : 0.5 }]}
               key={image}
               active={i === selectedIndex}
             />
