@@ -8,10 +8,8 @@ const convertProduct = (raw: any): ProductSnapshot => {
   // const id = uuid.v4()
 
   return {
-    id: raw.id,
-    name: raw.name,
-    description: raw.description,
-    imageUrl: raw.imageUrl,
+    displayType: raw.displayType,
+    dataObject: raw.dataObject,
   }
 }
 
@@ -119,57 +117,84 @@ export class Api {
     // make the api call
     const response: ApiResponse<any> = await this.apisauce.get("",)
 
-    const results = [{
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y4f5e96j",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y2szwrys",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y4bfj5b7",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y44marw5",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "Minimum Discount 50%",
-      imageUrl: "https://tinyurl.com/y4urobx8",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y2yhf95n",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/y5n467o3",
-    },
-    {
-      id: 1,
-      name: "Product 1",
-      description: "This is a product",
-      imageUrl: "https://tinyurl.com/yxupqdll",
-    },
+    const results = [
+      {
+        displayType: "carousel",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y3w8oaah" },
+          { imageUrl: "https://tinyurl.com/y4vaulog" },
+          { imageUrl: "https://tinyurl.com/y3j7rq6g" },
+          { imageUrl: "https://tinyurl.com/y28jpmyr" },
+          { imageUrl: "https://tinyurl.com/y2w7fbdo" },
+          { imageUrl: "https://tinyurl.com/yy2f6lha" }
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y3w8oaah" },
+          { imageUrl: "https://tinyurl.com/y4vaulog" },
+          { imageUrl: "https://tinyurl.com/y3j7rq6g" },
+          { imageUrl: "https://tinyurl.com/y28jpmyr" },
+          { imageUrl: "https://tinyurl.com/y2w7fbdo" },
+          { imageUrl: "https://tinyurl.com/yy2f6lha" }
+        ]
+      },
+      { 
+        displayType: "product",
+        dataObject: [
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y4f5e96j",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y2szwrys",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y4bfj5b7",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y44marw5",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum Discount 50%",
+            imageUrl: "https://tinyurl.com/y4urobx8",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y2yhf95n",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/y5n467o3",
+          },
+          {
+            id: 1,
+            name: "Product 1",
+            description: "Minimum discount 50%",
+            imageUrl: "https://tinyurl.com/yxupqdll",
+          }
+        ]
+      }
     ]
 
-    console.tron.log(results)
     // the typical ways to die when calling an api
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)
@@ -180,6 +205,7 @@ export class Api {
     try {
       const rawProducts = results
       const convertedProducts: ProductSnapshot[] = rawProducts.map(convertProduct)
+      console.tron.log('convertedProducts', convertedProducts)
       return { kind: "ok", products: convertedProducts }
     } catch (e) {
       __DEV__ && console.tron.log(e.message)

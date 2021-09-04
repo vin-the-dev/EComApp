@@ -41,6 +41,17 @@ export const HomeScreen = observer(function HomeScreen() {
   // Pull in navigation via hook
   // const navigation = useNavigation()
 
+  const banner = () => {
+    {
+      /* Banner */
+    }
+    return (
+      <View style={BANNER_STYLE}>
+        <Banner imageUrl="https://tinyurl.com/y379jw6s" />
+      </View>
+    )
+  }
+
   useEffect(() => {
     // do something
     console.tron.log("HomeScreen")
@@ -53,15 +64,60 @@ export const HomeScreen = observer(function HomeScreen() {
     console.tron.log(productStore.products)
   }, [productStore.products])
 
+  function renderItems({ item }: any) {
+    console.tron.log("renderItems", item)
+    if (item.displayType === "banner") {
+      return (
+        <View style={BANNER_STYLE}>
+          <Banner imageUrl={item.dataObject[0].imageUrl} />
+        </View>
+      )
+    }
+    if (item.displayType === "carousel") {
+      console.tron.log("carousel", item.dataObject)
+      const imageURLs = item.dataObject.map((product: any) => product.imageUrl)
+      return (
+        <View style={CAROUSEL_STYLE}>
+          <BackgroundCarousel images={imageURLs} />
+        </View>
+      )
+    }
+    if (item.displayType === "product") {
+      console.tron.log("product", item.dataObject)
+      return (
+        <View>
+          <View style={PRODUCT_STYLE}>
+            <Text preset="header" text="Discounts for you" />
+            <Button style={BUTTON_STYLE}>
+              <Text preset="bold" text="View All" />
+            </Button>
+          </View>
+          <FlatList
+            data={item.dataObject}
+            numColumns={2}
+            keyExtractor={(item) => item.toString()}
+            renderItem={({ item }) => <Product item={item} />}
+            scrollEnabled={true}
+            refreshing={productStore.products.length === 0}
+          />
+        </View>
+      )
+    }
+    return <View></View>
+  }
+
   // const fecthData = () => {}
   return (
     <Screen style={ROOT} preset="scroll">
-      {/* Banner */}
-      <View style={BANNER_STYLE}>
-        <Banner imageUrl="https://tinyurl.com/y379jw6s" />
-      </View>
+      <FlatList
+        data={productStore.products}
+        renderItem={renderItems}
+        refreshing={productStore.products.length === 0}
+        // style={{ backgroundColor: color.palette.black }}
+      />
+
       {/* Background Carousel */}
-      <View style={CAROUSEL_STYLE}>
+      {/* <View style={CAROUSEL_STYLE}>
         <BackgroundCarousel
           images={[
             "https://tinyurl.com/y3w8oaah",
@@ -72,9 +128,9 @@ export const HomeScreen = observer(function HomeScreen() {
             "https://tinyurl.com/yy2f6lha",
           ]}
         />
-      </View>
+      </View> */}
       {/* Products */}
-      <View style={PRODUCT_STYLE}>
+      {/* <View style={PRODUCT_STYLE}>
         <Text preset="header" text="Discounts for you" />
         <Button style={BUTTON_STYLE}>
           <Text preset="bold" text="View All" />
@@ -88,7 +144,7 @@ export const HomeScreen = observer(function HomeScreen() {
         renderItem={({ item }) => <Product item={item} />}
         scrollEnabled={true}
         refreshing={productStore.products.length === 0}
-      />
+      /> */}
     </Screen>
   )
 })
