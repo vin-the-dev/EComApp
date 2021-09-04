@@ -24,7 +24,7 @@ export const presets = {
   /**
    * A bold version of the default text.
    */
-  bold: { ...BASE, fontWeight: "bold" } as TextStyle,
+  bold: { ...BASE, fontWeight: "bold", color: color.palette.white } as TextStyle,
 
   /**
    * Large headers.
@@ -40,6 +40,11 @@ export const presets = {
    * A smaller piece of secondard information.
    */
   secondary: { ...BASE, fontSize: 9, color: color.dim } as TextStyle,
+
+  /**
+   * A Description information.
+   */
+  description: { ...BASE, fontSize: 15, color: color.palette.green } as TextStyle,
 }
 
 /**
