@@ -2,9 +2,12 @@
 
 # Created ignite framework!
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
-
-[Infinite Red](https://infinite.red) 
+[Infinite Framework](https://github.com/infinitered/ignite) 
 
 # Screenshots
 
+![Alt text](/screenshots/1.png?raw=true "Optional Title")
+
+![Alt text](/screenshots/2.png?raw=true "Optional Title")
+
+![Alt text](/screenshots/3.png?raw=true "Optional Title")
