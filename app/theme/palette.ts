@@ -8,4 +8,5 @@ export const palette = {
   lighterGrey: "#CDD4DA",
   angry: "#dd3333",
   green: "#00b159",
+  blackWithOpacity: "#1d1d1d1A",
 }

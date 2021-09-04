@@ -32,7 +32,7 @@ export const Banner = observer(function Banner(props: BannerProps) {
         source={{
           uri: imageUrl,
         }}
-        resizeMode="cover"
+        resizeMode="stretch"
       />
     </View>
   )

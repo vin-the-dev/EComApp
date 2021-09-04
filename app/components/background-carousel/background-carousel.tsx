@@ -4,6 +4,7 @@
 
 import * as React from "react"
 import { StyleSheet, View, ScrollView, Dimensions, Image } from "react-native"
+import { color } from "../../theme"
 
 const DEVICE_WIDTH = Dimensions.get("window").width
 
@@ -62,7 +63,7 @@ class BackgroundCarousel extends React.Component {
               style={styles.backgroundImage}
               source={{ uri: image }}
               key={image}
-              resizeMode="cover"
+              resizeMode="stretch"
             />
           ))}
         </ScrollView>
@@ -87,13 +88,16 @@ const styles = StyleSheet.create({
   },
   circleDiv: {
     alignItems: "center",
+    alignSelf: "center",
     bottom: 15,
     display: "flex",
     flexDirection: "row",
     height: 10,
     justifyContent: "center",
     position: "absolute",
-    width: "100%",
+    // width: "100%",
+    backgroundColor: color.palette.blackWithOpacity,
+    borderRadius: 10,
   },
   whiteCircle: {
     backgroundColor: "#fff",
