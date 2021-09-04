@@ -1,17 +1,14 @@
 import * as React from "react"
-import { Image, TextStyle, View, ViewStyle } from "react-native"
+import { Image, ImageStyle, View, ViewStyle } from "react-native"
 import { observer } from "mobx-react-lite"
-import { color, typography } from "../../theme"
-import { Text } from "../"
 
 const CONTAINER: ViewStyle = {
   justifyContent: "center",
 }
 
-const TEXT: TextStyle = {
-  fontFamily: typography.primary,
-  fontSize: 14,
-  color: color.primary,
+const IMAGE_STYLE: ImageStyle = {
+  height: "100%",
+  width: "100%",
 }
 
 export interface BannerProps {
@@ -31,7 +28,7 @@ export const Banner = observer(function Banner(props: BannerProps) {
   return (
     <View style={[CONTAINER, style]}>
       <Image
-        style={{ height: "100%", width: "100%" }}
+        style={IMAGE_STYLE}
         source={{
           uri: imageUrl,
         }}

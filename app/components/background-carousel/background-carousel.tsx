@@ -1,5 +1,7 @@
 // https://github.com/cmcaboy/imageCarouselExample/blob/a2a6aa0bc926867379e6e61d080a4235f19071e5/BackgroundCarousel.js#L6
 
+/* eslint-disable */
+
 import * as React from "react"
 import { StyleSheet, View, ScrollView, Dimensions, Image } from "react-native"
 

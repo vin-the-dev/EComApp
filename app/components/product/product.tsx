@@ -1,18 +1,29 @@
 import * as React from "react"
-import { Image, TextStyle, View, ViewStyle } from "react-native"
+import { Image, ImageStyle, View, ViewStyle } from "react-native"
 import { observer } from "mobx-react-lite"
-import { color, spacing, typography } from "../../theme"
+import { color, spacing } from "../../theme"
 import { Text } from "../"
+
+const MAIN_CONTAINER: ViewStyle = {
+  backgroundColor: color.palette.white,
+  width: "50%",
+  paddingBottom: spacing.medium,
+}
 
 const CONTAINER: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
 }
 
-const TEXT: TextStyle = {
-  fontFamily: typography.primary,
-  fontSize: 14,
-  color: color.primary,
+const WRAPPER_CONTAINER: ViewStyle = {
+  flexDirection: "row",
+  paddingHorizontal: spacing.large,
+  justifyContent: "space-around",
+}
+
+const IMAGE_STYLE: ImageStyle = {
+  height: 150,
+  width: 150,
 }
 
 export interface ProductProps {
@@ -30,25 +41,14 @@ export const Product = observer(function Product(props: ProductProps) {
   const { style, item } = props
 
   return (
-    <View
-      style={{
-        backgroundColor: color.palette.white,
-        width: "50%",
-      }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          paddingHorizontal: spacing.large,
-          justifyContent: "space-around",
-        }}
-      >
+    <View style={MAIN_CONTAINER}>
+      <View style={WRAPPER_CONTAINER}>
         <View style={[CONTAINER, style]}>
           <Image
             source={{
               uri: item.imageUrl,
             }}
-            style={{ height: 150, width: 150 }}
+            style={IMAGE_STYLE}
           />
           <Text preset="default" text={item.name} />
           <Text preset="description" text={item.description} />
