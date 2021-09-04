@@ -142,7 +142,7 @@ export class Api {
           { imageUrl: "https://tinyurl.com/y3pjtea4" },
         ]
       },
-      { 
+      {
         displayType: "product",
         dataObject: [
           {

@@ -41,17 +41,6 @@ export const HomeScreen = observer(function HomeScreen() {
   // Pull in navigation via hook
   // const navigation = useNavigation()
 
-  const banner = () => {
-    {
-      /* Banner */
-    }
-    return (
-      <View style={BANNER_STYLE}>
-        <Banner imageUrl="https://tinyurl.com/y379jw6s" />
-      </View>
-    )
-  }
-
   useEffect(() => {
     // do something
     console.tron.log("HomeScreen")
