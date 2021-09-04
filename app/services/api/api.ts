@@ -109,6 +109,7 @@ export class Api {
       return { kind: "bad-data" }
     }
   }
+  // team@whiterabbit.com
 
   /**
    * Gets a list of Products.
@@ -126,18 +127,19 @@ export class Api {
           { imageUrl: "https://tinyurl.com/y3j7rq6g" },
           { imageUrl: "https://tinyurl.com/y28jpmyr" },
           { imageUrl: "https://tinyurl.com/y2w7fbdo" },
-          { imageUrl: "https://tinyurl.com/yy2f6lha" }
+          { imageUrl: "https://tinyurl.com/yy2f6lha" },
         ]
       },
       {
         displayType: "banner",
         dataObject: [
-          { imageUrl: "https://tinyurl.com/y3w8oaah" },
-          { imageUrl: "https://tinyurl.com/y4vaulog" },
-          { imageUrl: "https://tinyurl.com/y3j7rq6g" },
-          { imageUrl: "https://tinyurl.com/y28jpmyr" },
-          { imageUrl: "https://tinyurl.com/y2w7fbdo" },
-          { imageUrl: "https://tinyurl.com/yy2f6lha" }
+          { imageUrl: "https://tinyurl.com/y379jw6s" },
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y3pjtea4" },
         ]
       },
       { 
@@ -192,7 +194,37 @@ export class Api {
             imageUrl: "https://tinyurl.com/yxupqdll",
           }
         ]
-      }
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y2gersqn" },
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y3c6ksu5" },
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y4k2klen" },
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y3pccdrc" }
+        ]
+      },
+      {
+        displayType: "banner",
+        dataObject: [
+          { imageUrl: "https://tinyurl.com/y26fn9rm" }
+        ]
+      },
     ]
 
     // the typical ways to die when calling an api
